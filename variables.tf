@@ -31,7 +31,7 @@ variable "private_subnet_cidrs" {
 variable "instance_type" {
   description = "EC2 instance type"
   type        = string
-  default     = "t2.micro"
+  default     = "t3.micro"
 }
 
 variable "key_name" {
@@ -48,13 +48,13 @@ variable "domain_name" {
 variable "db_name" {
   description = "WordPress database name"
   type        = string
-  default     = "wordpress_db"
+  default     = "wordpress-db"
 }
 
 variable "db_user" {
   description = "WordPress database user"
   type        = string
-  default     = "wp_admin"
+  default     = "admin"
 }
 
 variable "db_password" {
