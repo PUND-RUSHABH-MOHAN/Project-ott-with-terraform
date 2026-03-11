@@ -1,0 +1,8 @@
+aws_region    = "ap-south-1"
+project_name  = "netflix-wp-streaming"
+instance_type = "t3.micro"
+key_name      = "docker-key-rushab"
+db_name       = "wordpress-db"
+db_user       = "admin"
+db_password   = "Zaq12wsxcde3"
+domain_name   = ""
