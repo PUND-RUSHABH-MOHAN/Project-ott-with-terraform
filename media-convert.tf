@@ -1,6 +1,6 @@
-# MediaConvert Endpoint Data Source
+# MediaConvert Queue Data Source (reference existing queue by name)
 data "aws_mediaconvert_queue" "default" {
-  id = "Default"
+  name = "Default"
 }
 
 # Lambda Function - Video Transcode Trigger
