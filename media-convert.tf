@@ -1,7 +1,9 @@
-# MediaConvert Queue Data Source (reference existing queue by name)
-data "aws_mediaconvert_queue" "default" {
-  name = "Default"
+variable "region" {
+  default = "ap-south-1" # <-- update if needed
 }
+
+# (Optional) If you want to interpolate the account_id
+# data "aws_caller_identity" "current" {}
 
 # Lambda Function - Video Transcode Trigger
 resource "aws_lambda_function" "video_transcode" {
@@ -16,8 +18,8 @@ resource "aws_lambda_function" "video_transcode" {
   environment {
     variables = {
       OUTPUT_BUCKET       = aws_s3_bucket.video_processed.bucket
-      MEDIACONVERT_ROLE   = aws_iam_role.mediaconvert_role.arn
-      MEDIACONVERT_QUEUE  = data.aws_mediaconvert_queue.default.arn
+      MEDIACONVERT_ROLE   = "arn:aws:iam::442042523408:role/${var.project_name}-lambda-role"
+      MEDIACONVERT_QUEUE  = "arn:aws:mediaconvert:${var.region}:442042523408:queues/Default"
     }
   }
 
